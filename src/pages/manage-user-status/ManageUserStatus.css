@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+body{
+    display: flex;
+}
+
+.heading-container{
+    margin: 0px 112px;
+    display: flex;
+    padding-top: 62px;
+    align-items: center;
+}
+
+.heading{
+    font-size: 112px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-payment{
+    background: linear-gradient(#5891FF, #F7A5FF);;
+    font-weight: 800;
+}
+
+.button-role{
+    background: linear-gradient(#5891FF, #F7A5FF);;
+    font-weight: 800;
+}
+
+.content-table{
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr{
+    background: linear-gradient(to bottom, #5891FF, #F7A5FF);
+    color: white;
+    text-align: center;
+    font-weight: 800;
+    font-size: 52px;
+}
+
+.content-table th,
+.content-table td{
+    font-size: 32px;
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+    color: #3E65B0;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid #5891FF;
+}
+
+.close-buttonn {
+    background: linear-gradient(#5891FF, #F7A5FF);
+    border: none;
+    font-size: 52px;
+    color: white;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    .heading-container{
+        margin: 0px;
+        padding: 32px 12px 0px 12px;
+    }
+    .heading{
+        font-size: 22px;
+    }
+
+    .content-table thead{
+        display: none;
+    }
+
+    .content-table, .content-table tbody, .content-table tr, .content-table td{
+        display: block;
+        width: 100%;
+    }
+
+    .content-table tr{
+        margin-bottom: 15px;
+    }
+
+    .content-table td{
+        font-size: 12px;
+    }
+
+    .close-buttonn{
+        width: fit-content;
+        height: fit-content;
+        font-size: 12px;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .heading-container{
+        margin: 0px;
+        padding: 32px 12px 0px 12px;
+    }
+    .heading{
+        font-size: 32px;
+    }
+
+    .content-table thead{
+        display: none;
+    }
+
+    .content-table, .content-table tbody, .content-table tr, .content-table td{
+        display: block;
+        width: 100%;
+    }
+
+    .content-table tr{
+        margin-bottom: 15px;
+    }
+
+    .content-table td{
+        font-size: 18px;
+    }
+
+    .close-buttonn{
+        width: fit-content;
+        height: fit-content;
+        font-size: 12px;
+    }
+  }

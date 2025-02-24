@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+.login-form-container .heading{
+    font-size: 122px;
+    margin: 0px;
+    width: fit-content;
+    height: fit-content;
+    font-family: "Lora", serif;
+}
+
+.login-container{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Lora", serif;
+    background-color: rgb(255, 255, 255);
+}
+
+.logo-container{
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: grid;
+    align-items: center;
+    background: linear-gradient(#5891FF, #F7A5FF);
+}
+
+.sivi-logo{
+    padding: 0px;
+    width: 80%;
+    height: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form-container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    float: right;
+    gap: 32px;
+    padding: 0px;
+    margin: 0px 122px;
+    background-color: rgb(255, 255, 255);
+}
+
+.login-form-container .form-class{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 150px;
+}
+
+.form-class .field{
+    margin: 0px;
+    width: 100%;
+    padding: 32px;
+    outline: none;
+    border-radius: 8px;
+    border-width: 5px;
+    border-image: linear-gradient(#5891FF, #F7A5FF) 2;
+    background: transparent;    
+    color: #3E65B0;
+    font-size: 52px;
+}
+
+.form-class input[type="text"]::-webkit-input-placeholder{
+    color: #3E65B0;
+    opacity: 52%;
+    font-size: 52px;
+}
+
+
+.form-class input[type="email"]::-webkit-input-placeholder{
+    color: #3E65B0;
+    opacity: 52%;
+    font-size: 52px;
+}
+
+.form-class input[type="password"]::-webkit-input-placeholder{
+    color: #3E65B0;
+    opacity: 52%;
+    font-size: 52px;
+}
+
+.login-button{
+    height: fit-content;
+    width: 100%;
+    padding: 18px;
+    margin-top: 20px;
+    border: 0px;
+    font-size: 62px;
+    font-family: "Lora", serif;
+    background: linear-gradient(#5891FF, #F7A5FF);
+}
+
+.go-to-register-text{
+    color: #3E65B0;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.route-to-register{
+    font-family: "Lora", serif;
+    color: #3E65B0;
+    font-size: 38px;
+    font-weight: 800;
+}
+
+@media screen and (max-width: 768px) {
+    .login-form-container{
+        gap: 0px;
+        margin: 0px 32px;
+    }
+
+    .login-form-container .headingg{
+        font-size: 32px;
+    }
+
+    .logo-container{
+        display: none;
+    }
+
+    .login-form-container .form-class{
+        gap: 12px;
+        margin: 32px 0px;
+    }
+
+    .form-class .field{
+        padding: 16px;
+        font-size: 15px;
+        border-width: 2px;
+    }
+
+    .form-class input[type="email"]::-webkit-input-placeholder{
+        font-size: 15px;
+    }
+
+    .form-class input[type="password"]::-webkit-input-placeholder{
+        font-size: 15px;
+    }
+
+    .login-button{
+        font-size: 18px;
+    }
+
+    .go-to-register-text{
+        font-size: 12px;
+    }
+
+    .route-to-register{
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .login-form-container{
+        gap: 0px;
+        margin: 0px 32px;
+    }
+
+    .login-form-container .heading{
+        font-size: 32px;
+    }
+
+    .login-form-container .form-class{
+        gap: 12px;
+        margin: 32px 0px;
+    }
+
+    .form-class .field{
+        padding: 16px;
+        font-size: 15px;
+        border-width: 2px;
+    }
+
+    .form-class input[type="email"]::-webkit-input-placeholder{
+        font-size: 15px;
+    }
+
+    .form-class input[type="password"]::-webkit-input-placeholder{
+        font-size: 15px;
+    }
+
+    .login-button{
+        font-size: 18px;
+    }
+
+    .go-to-register-text{
+        font-size: 12px;
+    }
+
+    .route-to-register{
+        font-size: 12px;
+    }
+}
