@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Register.css";
+import styles from "./Register.module.css";
 import registerImage from "../../assets/sivi-logo.png";
 import API from "../../api";
 
@@ -13,15 +12,38 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [repPassword, setRepPassword] = useState("");
 
+  // Fungsi untuk membatasi panjang karakter
+  const handleUsernameChange = (e) => {
+    if (e.target.value.length <= 20) {
+      setUsername(e.target.value);
+    } else {
+      toast.error("Username maksimal 20 karakter!");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    if (e.target.value.length <= 50) {
+      setEmail(e.target.value);
+    } else {
+      toast.error("Email maksimal 50 karakter!");
+    }
+  };
+
   const navigate = useNavigate();
 
   const registerUser = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
     if (username.length === 0) {
       toast.error("Username tidak boleh kosong!");
     } else if (email.length === 0) {
       toast.error("Email tidak boleh kosong!");
+    } else if (!emailRegex.test(email)) {
+      toast.error("Email tidak valid!");
     } else if (password.length === 0) {
       toast.error("Password tidak boleh kosong!");
+    } else if (password.length < 8) {
+      toast.error("Password minimal 8 karakter!");
     } else if (password !== repPassword) {
       toast.error("Password tidak cocok!");
     } else {
@@ -40,7 +62,7 @@ export default function Register() {
           console.log(response);
           toast.success("Registrasi berhasil!");
           toast.success("Cek email untuk panduan berikutnya");
-          setTimeout(() => navigate("/login"), 2000);
+          setTimeout(() => navigate("/login", { replace: true }), 2000);
         })
         .catch(function (error) {
           console.log(error, "error");
@@ -54,23 +76,23 @@ export default function Register() {
   };
 
   return (
-    <div className="register-container">
-      <div className="logo-container">
+    <div className={styles["register-container"]}>
+      <div className={styles["logo-container"]}>
         <h2></h2>
-        <img src={registerImage} alt="App Logo" className="sivi-logo" />
+        <img src={registerImage} alt="App Logo" className={styles["sivi-logo"]} />
         <h2></h2>
       </div>
 
-      <div className="register-form-container">
-        <h2 className="heading">REGISTER</h2>
-        <form className="form-class">
+      <div className={styles["register-form-container"]}>
+        <h2 className={styles["heading"]}>REGISTER</h2>
+        <form className={styles["form-class"]}>
           <input
             type="text"
             name="username"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="field"
+            onChange={handleUsernameChange}
+            className={styles["field"]}
             required
           />
           <input
@@ -78,8 +100,8 @@ export default function Register() {
             name="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="field"
+            onChange={handleEmailChange}
+            className={styles["field"]}
             required
           />
           <input
@@ -88,7 +110,7 @@ export default function Register() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="field"
+            className={styles["field"]}
             required
           />
           <input
@@ -97,15 +119,15 @@ export default function Register() {
             placeholder="Repeat Password"
             value={repPassword}
             onChange={(e) => setRepPassword(e.target.value)}
-            className="field"
+            className={styles["field"]}
             required
           />
-          <button type="button" className="register-button" onClick={registerUser}>
+          <button type="button" className={styles["register-button"]} onClick={registerUser}>
             Register
           </button>
         </form>
-        <p className="go-to-login">
-          Sudah punya akun?<Link to="/login" className="route-to-login"> Login</Link>
+        <p className={styles["go-to-login"]}>
+          Sudah punya akun? <span className={styles["route-to-login"]} onClick={() => navigate("/login", { replace: true })}>Login</span>
         </p>
       </div>
 

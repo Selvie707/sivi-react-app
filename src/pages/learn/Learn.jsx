@@ -1,4 +1,4 @@
-import './Learn.css';
+import styles from './Learn.module.css';
 import axios from "axios";
 import Guide from "../guide/Guide";
 import logo from "../../assets/offcam-logo.png";
@@ -116,35 +116,35 @@ const Learn = () => {
   }, [fetchInterval, cameraActive, targetLetter]);
 
   return (
-    <div className='container'>
+    <div className={styles["container"]}>
       <Navbar />
 
-      <div className="main-container">
+      <div className={styles["main-container"]}>
         {!cameraActive ? (
-          <img src={logo} alt="Logo" className="cam-logo" style={{ width: "30%"}} />          
+          <img src={logo} alt="Logo" className={styles["cam-logo"]} style={{ width: "30%"}} />          
         ) : (
-          <video className="video" ref={videoRef} autoPlay playsInline />
+          <video className={styles["video"]} ref={videoRef} autoPlay playsInline />
         )}
 
-        <div className="target-detected-letter">
-            <div className="letters">
-                <div className="letter">
-                    <h2 className="title">PERAGAKAN HURUF</h2>
-                    <p className="result">{targetLetter}</p>
+        <div className={styles["target-detected-letter"]}>
+            <div className={styles["letters"]}>
+                <div className={styles["letter"]}>
+                    <h2 className={styles["title"]}>PERAGAKAN HURUF</h2>
+                    <p className={styles["result"]}>{targetLetter}</p>
                 </div>
                 
-                <div className="letter">
-                    <h2 className="title">TERDETEKSI SEBAGAI</h2>
-                    <p className="result">{detectedLetter}</p>
+                <div className={styles["letter"]}>
+                    <h2 className={styles["title"]}>TERDETEKSI SEBAGAI</h2>
+                    <p className={styles["result"]}>{detectedLetter}</p>
                 </div>
             </div>
 
-            <div className="camera-selection">
-              <label htmlFor="cameraSelect">PILIH KAMERA:</label>
+            <div className={styles["camera-selection"]}>
+              <label className={styles["cameraSelect"]}>KAMERA:</label>
 
               <select
                 id="cameraSelect"
-                className="camera-options"
+                className={styles["camera-options"]}
                 onChange={(e) => setSelectedCamera(e.target.value)}
                 value={selectedCamera}
                 disabled={cameraActive}
@@ -155,29 +155,31 @@ const Learn = () => {
                   </option>
                 ))}
               </select>
-
-              {!cameraActive ? (
-                <button className="camera-button" onClick={startCamera}>MULAI KAMERA</button>
-              ) : (
-                <button className="camera-button" onClick={stopCamera}>MATIKAN KAMERA</button>
-              )}
             </div>
+
+            {!cameraActive ? (
+              <button className={styles["camera-button"]} onClick={startCamera}>MULAI KAMERA</button>
+            ) : (
+              <button className={styles["camera-button"]} onClick={stopCamera}>MATIKAN KAMERA</button>
+            )}
             
-            <button className="guide-button" onClick={() => setShowGuide(true)}>PANDUAN</button>
+            <button className={styles["guide-button"]} onClick={() => setShowGuide(true)}>PANDUAN</button>
             {showGuide && <Guide onClose={() => setShowGuide(false)} />}
         </div>
       </div>
 
-      <div className="history-container">
-        <div className="history">
-          <h2 className="history-text">JAWABAN BENAR</h2>
+      <hr className={styles["horizontal-line"]}/>
+
+      <div className={styles["history-container"]}>
+        <div className={styles["history"]}>
+          <h2 className={styles["history-text"]}>JAWABAN BENAR</h2>
         </div>
         
-        <div className="history-grid">
+        <div className={styles["history-grid"]}>
           {history.map((item, index) => (
-            <div key={index} className="history-item">
-              <img src={item.frame} alt={`Detected ${item.letter}`} className="history-image" />
-              <p className="historyText">{item.letter}</p>
+            <div key={index} className={styles["history-item"]}>
+              <img src={item.frame} alt={`Detected ${item.letter}`} className={styles["history-image"]} />
+              <p className={styles["historyText"]}>{item.letter}</p>
             </div>
           ))}
         </div>

@@ -15,7 +15,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.5",
     "react-toastify": "^11.0.3",
-    "spellchecker": "^3.7.1"
+    "spellchecker": "^3.7.1",
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

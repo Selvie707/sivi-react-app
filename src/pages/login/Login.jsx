@@ -1,12 +1,11 @@
-import "./Login.css";
-import axios from 'axios';
+import styles from "./Login.module.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import registerImage from "../../assets/sivi-logo.png";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import API from "../../api";
+import { useEffect } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -27,7 +26,7 @@ export default function Login() {
         console.log(response);
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("userRole", response.data.role);  
-        navigate("/");
+        navigate("/", { replace: true });
       })
       .catch(function (error) {
         console.log(error, "error");
@@ -38,22 +37,28 @@ export default function Login() {
         }
       });
     }
-  };  
+  };
+
+  useEffect(() => {
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    navigate("/", { replace: true });
+  }
+}, []);
 
   return (
-    <div className="login-container">
-      <div className="logo-container">
+    <div className={styles["login-container"]}>
+      <div className={styles["logo-container"]}>
         <h2></h2>
         
-        <img src={registerImage} alt="App Logo" className="sivi-logo" />
+        <img src={registerImage} alt="App Logo" className={styles["sivi-logo"]} />
         
         <h2></h2>
       </div>
       
-      <div className="login-form-container">
-          <h2 className="headingg">LOGIN</h2>
+      <div className={styles["login-form-container"]}>
+          <h2 className={styles["headingg"]}>LOGIN</h2>
 
-          <form className="form-class">
+          <form className={styles["form_class"]}>
             <input
               type="email"
               name="email"
@@ -61,7 +66,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               id="form3Example"
-              className="field"
+              className={styles["field"]}
               required
             />
 
@@ -72,21 +77,21 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               id="form3Example2"
-              className="field"
+              className={styles["field"]}
               required
             />
 
             <button
               type="button"
-              className="login-button"
+              className={styles["login-button"]}
               onClick={logInUser}
             >
               Login
             </button>
           </form>
 
-          <p className="go-to-register-text">
-            Belum punya akun?<Link to="/register" className="route-to-register"> Register</Link>
+          <p className={styles["go-to-register-text"]}>
+            Belum punya akun? <span className={styles["route-to-register"]} onClick={() => navigate("/register", { replace: true })}>Register</span>
           </p>
         </div>
         

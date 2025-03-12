@@ -11,11 +11,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(#5891FF, #F7A5FF);
-    padding: 32px 82px;
+    background: #5891FF;
+    padding: 0px 52px;
 }
 
-.logoo{
+.logo{
     width: 300px;
     height: auto;
     cursor: pointer;
@@ -39,7 +39,7 @@
         padding: 16px 32px;
     }
 
-    .logoo{
+    .logo{
         width: 100px;
         height: auto;
     }
@@ -54,22 +54,62 @@
     }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1219px) {
     .navbar{
         padding: 16px 32px;
     }
 
-    .logoo{
-        width: 100px;
+    .logo{
+        width: 150px;
         height: auto;
     }
 
     .navbar-icons{
-        gap: 32px;
+        gap: 52px;
     }
 
     .icon{
         width: auto;
-        height: 22px;
+        height: 38px;
+    }
+}
+
+@media screen and (min-width: 1220px) and (max-width: 1920px) {
+    .navbar{
+        padding: 0px 52px;
+    }
+
+    .logo{
+        width: 250px;
+        height: auto;        
+    }
+
+    .navbar-icons{
+        gap: 112px;
+    }
+
+    .icon{
+        width: auto;
+        height: 52px;
+    }
+}
+
+@media screen and (min-width: 1921px) {
+    .navbar{
+        padding: 0px 52px;
+    }
+
+    .logo{
+        width: 300px;
+        height: auto;        
+    }
+
+    .navbar-icons{
+        gap: 122px;
+    }
+
+    .icon{
+        width: auto;
+        height: 62px;
     }
 }

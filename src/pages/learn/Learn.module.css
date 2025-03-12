@@ -1,0 +1,509 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+}
+
+.video{
+  width: 38%;
+  height: auto;
+  border-radius: 32px;
+  border: #F7A5FF 30px;
+}
+
+.main-container{
+  margin: 0px;
+  width: 100%;
+  padding: 52px;
+  display: flex;
+  max-width: 100vw;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.target-detected-letter{
+  width: 100%;
+  gap: 38px;
+  padding: 0px 82px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.letters{
+  gap: 52px;
+  display: flex;
+}
+
+.letter{
+  gap: 32px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.result{
+  font-size: 100px;
+  width: fit-content;
+  height: fit-content;
+  font-weight: bolder;
+  align-content: center;
+  justify-content: center;
+}
+
+h2{
+  margin: 0px;
+  color: #3E65B0;
+  width: fit-content;
+  height: fit-content;
+}
+
+p{
+  font-size: 50px;
+  color: #3E65B0;
+  font-weight: bolder;
+}
+
+.guide-button{
+  height: fit-content;
+  width: 100%;
+  padding: 16px 0px;
+  margin: 0px;
+  border: 0px;
+  font-size: 52px;
+  background: #5891FF;
+}
+
+.camera-button{
+  height: fit-content;
+  width: 100%;
+  padding: 16px;
+  margin: 0px;
+  border: 0px;
+  font-size: 52px;
+  background: #5891FF;
+}
+
+.interval{
+  flex-grow: 1;
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+}
+
+.intervalOption{
+  flex-grow: 1;
+  padding: 12px;
+  color: #3E65B0;
+  margin-top: 36px;
+  border-width: 2px;
+  margin-left: 20px;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  background: #FFFFFF;
+  border: #5891FF 1;
+}
+
+.camera-selection{
+  width: 100%;
+  padding: 0px;
+  font-size: 38px;
+  font-weight: 800;
+  display: flex;
+  color: #3E65B0;
+  text-align: center;
+  align-items: center;
+  height: fit-content;
+  background: #FFFFFF;
+}
+
+.camera-options{
+  padding: 12px;
+  margin-top: 0px;
+  font-size: 38px;
+  color: #3E65B0;
+  border-width: 2px;
+  margin-left: 12px;
+  text-align: center;
+  flex-grow: 1;
+  width: fit-content;
+  height: fit-content;
+  background: #FFFFFF;
+  border-image: #5891FF 1;
+}
+
+.history-container{
+  width: 100%;
+}
+
+.history{
+  display: flex;
+  justify-content: center;
+}
+
+.history-text{
+  margin: 0px;
+  text-align: center;
+  font-size: 38px;
+}
+
+.history-grid{
+  margin: 32px 0px 0px 0px;
+  gap: 32px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  justify-content: center;
+}
+
+.history-image {
+  margin: 0px;
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.historyText{
+  font-size: 52px;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.horizontal-line{
+  border: none;
+  height: 3px;
+  background: #3E65B0;
+}
+
+@media screen and (max-width: 768px) {
+  .main-container{
+    gap: 0px;
+    margin: 0px;
+    padding: 32px;
+    flex-direction: column;
+  }
+
+  .cam-logo{
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+  }
+
+  .letters{
+    gap: 62px;
+    
+  }
+
+  .letter{
+    flex-grow: 1;
+  }
+
+  .target-detected-letter{
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    padding: 0px;
+    height: fit-content;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .title{
+    font-size: 16px;
+  }
+  
+  .result{
+    font-size: 28px;
+  }
+
+  .functions-container{
+    margin: 0px 12px;
+    padding: 0px;
+    gap: 12px;
+  }
+  
+  .cameraSelect{
+    font-size: 16px;
+  }
+
+  .camera-selection{
+    flex-direction: row;
+  }
+
+  .camera-options{
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .camera-button{
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 0px;
+    height: fit-content;
+  }
+
+  .guide-button{
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 0px;
+    height: fit-content;
+  }
+
+  .history-container{
+    padding: 32px;
+  }
+
+  .history{
+    margin: 0px;
+  }
+
+  .history-text{
+    font-size: 16px;
+  }
+
+  .history-grid{
+    gap: 12px;
+  }
+
+  .history-image{
+    width: 80px;
+  }
+
+  .video{
+    width: 300px;
+    margin: 0px auto;
+  }
+
+  .historyText{
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1219px) {
+  .main-container{
+    gap: 0px;
+    margin: 0px;
+    padding: 32px;
+    flex-direction: column;
+  }
+
+  .title{
+    font-size: 28px;
+  }
+
+  .result{
+    font-size: 52px;
+  }
+
+  .cam-logo{
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+  }
+
+  .letters{
+    gap: 62px;
+    
+  }
+
+  .letter{
+    flex-grow: 1;
+  }
+
+  .target-detected-letter{
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    padding: 0px;
+    height: fit-content;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .functions-container{
+    margin: 0px 12px;
+    padding: 0px;
+    gap: 12px;
+  }
+  
+  .cameraSelect{
+    font-size: 28px;
+  }
+
+  .camera-selection{
+    flex-direction: row;
+  }
+
+  .camera-options{
+    font-size: 28px;
+    width: 80%;
+  }
+
+  .camera-button{
+    width: 100%;
+    font-size: 28px;
+    padding: 10px 0px;
+    height: fit-content;
+  }
+
+  .guide-button{
+    width: 100%;
+    font-size: 28px;
+    padding: 10px 0px;
+    height: fit-content;
+  }
+
+  .history-container{
+    padding: 32px;
+  }
+
+  .history{
+    margin: 0px;
+  }
+
+  .history-text{
+    font-size: 28px;
+  }
+
+  .history-image{
+    width: 120px;
+  }
+
+  .video{
+    width: 300px;
+    margin: 0px auto;
+  }
+
+  .historyText{
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 1220px) and (max-width: 1920px) {
+  .video{
+    width: 35%;
+  }
+
+  .target-detected-letter{
+    padding: 32px;
+  }
+
+  .title{
+    padding: 0px;
+    font-size: 28px;
+  }
+
+  .result{
+    font-size: 52px;
+  }
+
+  .letters{
+    gap: 82px;
+  }
+
+  .letter{
+    gap: 32px;
+  }
+
+  .cameraSelect{
+    font-size: 28px;
+  }
+
+  .camera-options{
+    font-size: 28px;
+  }
+
+  .camera-button{
+    font-size: 28px;
+  }
+
+  .guide-button{
+    font-size: 28px;
+  }
+
+  .history-text{
+    font-size: 28px;
+  }
+
+  .history-container{
+    padding: 52px;
+  }
+
+  .history-image{
+    width: 220px;
+    height: auto;
+  }
+
+  .historyText{
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .video{
+    width: 35%;
+  }
+
+  .title{
+    padding: 0px;
+    font-size: 38px;
+  }
+
+  .result{
+    font-size: 82px;
+  }
+
+  .letters{
+    gap: 182px;
+  }
+
+  .letter{
+    gap: 32px;
+  }
+
+  .cameraSelect{
+    font-size: 38px;
+  }
+
+  .camera-options{
+    font-size: 38px;
+  }
+
+  .camera-button{
+    font-size: 38px;
+  }
+
+  .guide-button{
+    font-size: 38px;
+  }
+
+  .history-text{
+    font-size: 38px;
+  }
+
+  .history-container{
+    padding: 52px;
+  }
+
+  .history-image{
+    width: 220px;
+    height: auto;
+  }
+
+  .historyText{
+    font-size: 38px;
+  }
+}

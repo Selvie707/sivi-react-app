@@ -17,7 +17,7 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    background: linear-gradient(#5891FF, #F7A5FF);
+    background: #5891FF;
     border: none;
     font-size: 62px;
     color: white;
@@ -30,18 +30,38 @@
 
   @media screen and (max-width: 768px) {
     .close-button{
-      font-size: 22px;
+      font-size: 100%;
     }
     h2{
-      font-size: 32px;
+      font-size: 200%;
     }
   }
 
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
+  @media screen and (min-width: 769px) and (max-width: 1219px) {
     .close-button{
-      font-size: 22px;
+      font-size: 100%;
     }
     h2{
-      font-size: 52px;
+      font-size: 200%;
+    }
+  }
+
+  @media screen and (min-width: 1220px) and (max-width: 1920px) {
+    h2{
+      font-size: 200%;
+    }
+
+    .close-button{
+      font-size: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1921px) {
+    h2{
+      font-size: 200%;
+    }
+
+    .close-button{
+      font-size: 100%;
     }
   }

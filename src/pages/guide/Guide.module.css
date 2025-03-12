@@ -1,0 +1,63 @@
+.guide-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .guide-image {
+    width: 50%;
+    border-radius: 10px;
+  }
+  
+  .close-button {
+    top: 20px;
+    left: 20px;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 120%;
+    font-weight: 800;
+    position: absolute;
+    background: #5891FF;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .guide-image{
+      width: 75%;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1219px) {
+    .guide-image{
+      width: 70%;
+    }
+
+    .close-button{
+      font-size: 200%;
+    }
+  }
+
+  @media screen and (min-width: 1220px) and (max-width: 1920px) {
+    .guide-image{
+      width: 60%;
+    }
+
+    .close-button{
+      font-size: 250%;
+    }
+  }
+
+  @media screen and (min-width: 1921px) {
+    .close-button{
+      font-size: 350%;
+    }
+  }

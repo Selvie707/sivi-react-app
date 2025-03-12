@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 import React from "react";
 import logo from "../../assets/sivi-logo.png";
 import adminIcon from "../../assets/admin-logo.png";
@@ -23,29 +23,29 @@ const Navbar = () => {
   const learnButtonTarget = isLearnPage ? "/" : "/learn";
 
   return (
-    <div className="navbar">
-      <img src={logo} alt="Logo" className="logoo" />
-      <div className="navbar-icons">
+    <div className={styles["navbar"]}>
+      <img src={logo} alt="Logo" className={styles["logo"]} />
+      <div className={styles["navbar-icons"]}>
         {userRole === "admin" && (
           <img 
             src={adminIcon} 
             alt="admin" 
-            className="icon" 
-            onClick={() => navigate("/manage-user-status")}
-            style={{ cursor: "pointer" }} 
+            className={styles["icon"]} 
+            onClick={() => navigate("/manage-user-status", { state: { from: location.pathname } }, { replace: true })}
+            style={{ cursor: "pointer" }}
           />
         )}
         <img 
           src={learnButtonIcon}
           alt="Learn" 
-          className="icon" 
-          onClick={() => navigate(learnButtonTarget)}
+          className={styles["icon"]} 
+          onClick={() => navigate(learnButtonTarget, { replace: true })}
           style={{ cursor: "pointer" }} 
         />
         <img 
           src={logoutIcon} 
           alt="Logout" 
-          className="icon" 
+          className={styles["icon"]} 
           onClick={handleLogout} 
           style={{ cursor: "pointer" }} 
         />

@@ -1,5 +1,4 @@
-import axios from "axios";
-import './Recognition.css';
+import styles from './Recognition.module.css';
 import Guide from "../guide/Guide";
 import logo from "../../assets/offcam-logo.png";
 import Navbar from '../../components/navbar/Navbar';
@@ -7,27 +6,43 @@ import React, { useEffect, useRef, useState } from "react";
 import API from "../../api";
 
 const App = () => {
+  const fetchInterval = 800;
   const videoRef = useRef(null);
   const streamRef = useRef(null);
   const [cameraActive, setCameraActive] = useState(false);
   const [detectedLetter, setDetectedLetter] = useState("-");
-  const [fetchInterval, setFetchInterval] = useState(1000);
   const [intervalId, setIntervalId] = useState(null);
   const [history, setHistory] = useState([]);
   const [showGuide, setShowGuide] = useState(false);
   const [cameras, setCameras] = useState([]);
   const [selectedCamera, setSelectedCamera] = useState("");
 
+  const checkCameraPermission = async () => {
+    try {
+      const permission = await navigator.permissions.query({ name: "camera" });
+      if (permission.state === "denied") {
+        alert("Izin kamera ditolak. Silakan izinkan akses kamera di pengaturan browser.");
+        return false;
+      }
+      return true;
+    } catch (error) {
+      console.error("Gagal mengecek izin kamera:", error);
+      return false;
+    }
+  };
+
   const startCamera = async () => {
     if (!selectedCamera) return;
+    
+    const permissionGranted = await checkCameraPermission();
+    if (!permissionGranted) return;
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { deviceId: { exact: selectedCamera } },
       });
-
       streamRef.current = stream;
-      setCameraActive(true); 
+      setCameraActive(true);
       
       setTimeout(() => {
         if (videoRef.current) {
@@ -117,26 +132,26 @@ const App = () => {
   }, [fetchInterval, cameraActive]);
 
   return (
-    <div className='container'>
+    <div className={styles["container"]}>
       <Navbar />
 
-      <div className="detected-container">
+      <div className={styles["detected-container"]}>
         {!cameraActive ? (
-          <img src={logo} alt="Logo" style={{ width: "30%"}} className="cam-logo" />          
+          <img src={logo} alt="Logo" style={{ width: "30%"}} className={styles["cam-logo"]} />          
         ) : (
-          <video className="realtime-video" ref={videoRef} autoPlay playsInline />
+          <video className={styles["realtime-video"]} ref={videoRef} autoPlay playsInline />
         )}
 
-        <div className="functions-container">
-          <h2 className="title">TERDETEKSI SEBAGAI HURUF</h2>
-          <p className="result">{detectedLetter}</p>
+        <div className={styles["functions-container"]}>
+          <h2 className={styles["title"]}>TERDETEKSI SEBAGAI HURUF</h2>
+          <p className={styles["result"]}>{detectedLetter}</p>
           
-          <div className="camera-selection">
-            <label htmlFor="cameraSelect" className="option-label">PILIH KAMERA:</label>
+          <div className={styles["camera-selection"]}>
+            <label htmlFor="cameraSelect" className={styles["option-label"]}>PILIH KAMERA:</label>
 
             <select
               id="cameraSelect"
-              className="camera-selectionn"
+              className={styles["camera-selectionn"]}
               onChange={(e) => setSelectedCamera(e.target.value)}
               value={selectedCamera}
               disabled={cameraActive}
@@ -147,38 +162,29 @@ const App = () => {
                 </option>
               ))}
             </select>
-
-            <label className="option-label">ATUR KECEPATAN:</label>
-            
-            <select className="camera-selectionn" onChange={(e) => setFetchInterval(Number(e.target.value))} value={fetchInterval}>
-              <option value={500}>0.5 detik</option>
-              <option value={1000}>1 detik</option>
-              <option value={1500}>1.5 detik</option>
-              <option value={2000}>2 detik</option>
-              <option value={3000}>3 detik</option>
-              <option value={5000}>5 detik</option>
-            </select>
           </div>
 
           {!cameraActive ? (
-            <button className="button" onClick={startCamera}>MULAI KAMERA</button>
+            <button className={styles["button"]} onClick={startCamera}>MULAI KAMERA</button>
           ) : (
-            <button className="button" onClick={stopCamera}>MATIKAN KAMERA</button>
+            <button className={styles["button"]} onClick={stopCamera}>MATIKAN KAMERA</button>
           )}
 
-          <button className="button" onClick={() => setShowGuide(true)}>PANDUAN</button>
+          <button className={styles["button"]} onClick={() => setShowGuide(true)}>PANDUAN</button>
           {showGuide && <Guide onClose={() => setShowGuide(false)} />}
         </div>
       </div>
 
-      <div className="history-container">
-        <h2 className="history-text">HASIL DETEKSI</h2>
+      <hr className={styles["horizontal-line"]}/>
+
+      <div className={styles["history-container"]}>
+        <h2 className={styles["history-text"]}>HASIL DETEKSI</h2>
         
-        <div className="history-grid">
+        <div className={styles["history-grid"]}>
           {history.map((item, index) => (
-            <div key={index} className="history-item">
-              <img src={item.frame} alt={`Detected ${item.letter}`} className="history-image" />
-              <p className="history-result-text">{item.letter}</p>
+            <div key={index} className={styles["history-item"]}>
+              <img src={item.frame} alt={`Detected ${item.letter}`} className={styles["history-image"]} />
+              <p className={styles["history-result-text"]}>{item.letter}</p>
             </div>
           ))}
         </div>

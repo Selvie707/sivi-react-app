@@ -23,7 +23,7 @@ function App() {
           }
         />
         <Route path="/login" element={<Login />} />
-        <Route path="/learn" element={<Learn />} />
+        <Route path="/learn" element={<PrivateRoute><Learn /></PrivateRoute>} />
         <Route path="/register" element={<Register />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/" element={<PrivateRoute><Recognition /></PrivateRoute>} />
