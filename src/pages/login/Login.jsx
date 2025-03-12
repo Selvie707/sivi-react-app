@@ -10,7 +10,15 @@ import { useEffect } from "react";
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');  
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => {
+    if (e.target.value.length <= 50) {
+      setEmail(e.target.value);
+    } else {
+      toast.error("Email maksimal 50 karakter!");
+    }
+  };
 
   const logInUser = () => {
     if (email.length === 0) {
@@ -64,7 +72,7 @@ export default function Login() {
               name="email"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
               id="form3Example"
               className={styles["field"]}
               required
