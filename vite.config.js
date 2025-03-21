@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://sivi-flask-app-production.up.railway.app/',
+        target: 'https://via707-sivi.hf.space',
         changeOrigin: true,
         secure: false,
       },

@@ -71,6 +71,38 @@
     font-size: 52px;
 }
 
+.pass-field{
+    margin: 0px;
+    width: 100%;
+    padding: 32px;
+    outline: none;
+    border-radius: 8px;
+    border-width: 5px;
+    border-image: #5891FF 2;
+    background: transparent;    
+    color: #3E65B0;
+    font-size: 52px;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+  
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+
+.eye-icons{
+    font-size: 50px;
+}
+
 .form_class input[type="text"]::-webkit-input-placeholder{
     color: #3E65B0;
     opacity: 52%;
@@ -131,10 +163,24 @@
         margin: 32px 0px;
     }
 
-    .form_class .field{
+    .field{
         padding: 16px;
         font-size: 16px;
         border-width: 2px;
+    }
+
+    .pass-field{
+        padding: 16px;
+        font-size: 16px;
+        border-width: 2px;
+    }
+
+    .password-container{
+        gap: 12px;
+    }
+
+    .eye-icons{
+        font-size: 25px;
     }
 
     .form_class input[type="email"]::-webkit-input-placeholder{
@@ -179,6 +225,20 @@
         border-width: 2px;
     }
 
+    .pass-field{
+        padding: 16px;
+        font-size: 28px;
+        border-width: 2px;
+    }
+
+    .password-container{
+        gap: 12px;
+    }
+
+    .eye-icons{
+        font-size: 35px;
+    }
+
     .form_class input[type="email"]::-webkit-input-placeholder{
         font-size: 28px;
     }
@@ -211,6 +271,20 @@
         border-width: 2px;
     }
 
+    .pass-field{
+        padding: 16px;
+        font-size: 28px;
+        border-width: 2px;
+    }
+
+    .password-container{
+        gap: 12px;
+    }
+
+    .eye-icons{
+        font-size: 35px;
+    }
+
     .form_class input[type="email"]::-webkit-input-placeholder{
         font-size: 28px;
     }
@@ -241,6 +315,20 @@
         padding: 16px;
         font-size: 38px;
         border-width: 2px;
+    }
+
+    .pass-field{
+        padding: 16px;
+        font-size: 38px;
+        border-width: 2px;
+    }
+
+    .password-container{
+        gap: 12px;
+    }
+
+    .eye-icons{
+        font-size: 50px;
     }
 
     .form_class input[type="email"]::-webkit-input-placeholder{

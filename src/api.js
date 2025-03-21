@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://sivi-flask-app-production.up.railway.app/",
+  baseURL: "https://via707-sivi.hf.space",
   headers: {
     "Content-Type": "application/json",
   },

@@ -1,6 +1,6 @@
 import styles from "./Guide.module.css";
 import React from "react";
-import guideImage from "../../assets/sibi-alphabets-guide.png";
+import guideImage from "../../assets/sibi-alphabets-guide.webp";
 
 const Guide = ({ onClose }) => {
   return (

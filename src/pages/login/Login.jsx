@@ -6,11 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import API from "../../api";
 import { useEffect } from "react";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
 
   const handleEmailChange = (e) => {
     if (e.target.value.length <= 50) {
@@ -78,16 +81,19 @@ export default function Login() {
               required
             />
 
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              id="form3Example2"
-              className={styles["field"]}
-              required
-            />
+            <div className={styles["password-container"]}>
+              <input
+                type={show ? 'text': 'password'}
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                id="form3Example2"
+                className={styles["pass-field"]}
+                required
+              />
+              <p onClick={()=>setShow(!show)} className={styles["eye-icons"]}>{show ? (<FaEyeSlash/>) : (<FaEye/>)}</p>
+            </div>
 
             <button
               type="button"

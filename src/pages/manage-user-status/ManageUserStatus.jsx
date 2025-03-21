@@ -106,7 +106,25 @@ const ManageUserStatus = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users
+            .sort((a, b) => {
+              const order = {
+                user_false: 1,
+                admin_false: 2,
+                user_true: 3,
+                admin_true: 4,
+              };
+
+              const getOrder = (user) => {
+                if (user.role === "user" && !user.is_paid) return order.user_false;
+                if (user.role === "admin" && !user.is_paid) return order.admin_false;
+                if (user.role === "user" && user.is_paid) return order.user_true;
+                if (user.role === "admin" && user.is_paid) return order.admin_true;
+              };
+
+              return getOrder(a) - getOrder(b);
+            })
+            .map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.username}</td>

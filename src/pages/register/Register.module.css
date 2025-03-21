@@ -79,6 +79,25 @@
     font-size: 52px;
 }
 
+.password-container {
+    position: relative;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+  
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+}
+
+.eye-icons{
+    font-size: 50px;
+}
+
 input[type="text"]::-webkit-input-placeholder{
     color: #3E65B0;
     opacity: 52%;
@@ -142,6 +161,10 @@ input[type="password"]::-webkit-input-placeholder{
         margin: 32px 0px;
     }
 
+    .eye-icons{
+        font-size: 25px;
+    }
+
     .form-class .field{
         padding: 16px;
         font-size: 16px;
@@ -194,6 +217,10 @@ input[type="password"]::-webkit-input-placeholder{
         border-width: 2px;
     }
 
+    .eye-icons{
+        font-size: 35px;
+    }
+
     .form-class input[type="text"]::-webkit-input-placeholder{
         font-size: 28px;
     }
@@ -230,6 +257,10 @@ input[type="password"]::-webkit-input-placeholder{
         border-width: 2px;
     }
 
+    .eye-icons{
+        font-size: 35px;
+    }
+
     .form-class input[type="text"]::-webkit-input-placeholder{
         font-size: 28px;
     }
@@ -264,6 +295,10 @@ input[type="password"]::-webkit-input-placeholder{
         padding: 16px;
         font-size: 38px;
         border-width: 2px;
+    }
+
+    .eye-icons{
+        font-size: 50px;
     }
 
     .form-class input[type="text"]::-webkit-input-placeholder{

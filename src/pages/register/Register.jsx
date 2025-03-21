@@ -5,14 +5,17 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./Register.module.css";
 import registerImage from "../../assets/sivi-logo.png";
 import API from "../../api";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repPassword, setRepPassword] = useState("");
+  const [show, setShow] = useState(false);
+  const [reShow, setReShow] = useState(false);
 
-  // Fungsi untuk membatasi panjang karakter
   const handleUsernameChange = (e) => {
     if (e.target.value.length <= 20) {
       setUsername(e.target.value);
@@ -104,24 +107,33 @@ export default function Register() {
             className={styles["field"]}
             required
           />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={styles["field"]}
-            required
-          />
-          <input
-            type="password"
-            name="repeatPassword"
-            placeholder="Repeat Password"
-            value={repPassword}
-            onChange={(e) => setRepPassword(e.target.value)}
-            className={styles["field"]}
-            required
-          />
+
+          <div className={styles["password-container"]}>
+            <input
+              type={show ? 'text': 'password'}
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles["field"]}
+              required
+            />
+            <p onClick={()=>setShow(!show)} className={styles["eye-icons"]}>{show ? (<FaEyeSlash/>) : (<FaEye/>)}</p>
+          </div>
+
+          <div className={styles["password-container"]}>
+            <input
+              type={reShow ? 'text': 'password'}
+              name="repeatPassword"
+              placeholder="Repeat Password"
+              value={repPassword}
+              onChange={(e) => setRepPassword(e.target.value)}
+              className={styles["field"]}
+              required
+            />
+            <p onClick={()=>setReShow(!reShow)} className={styles["eye-icons"]}>{reShow ? (<FaEyeSlash/>) : (<FaEye/>)}</p>
+          </div>
+
           <button type="button" className={styles["register-button"]} onClick={registerUser}>
             Register
           </button>
