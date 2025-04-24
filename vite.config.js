@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://via707-sivi.hf.space',
+        target: 'https://d5b1-34-125-144-74.ngrok-free.app/',
         changeOrigin: true,
         secure: false,
       },
