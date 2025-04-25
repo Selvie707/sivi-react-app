@@ -78,21 +78,35 @@ const App = () => {
   };
 
   const sendFrameToServer = async () => {
+    const startCaptureTime = performance.now();
     const frame = captureFrame();
     if (!frame) return;
+
+    const startSendTime = performance.now(); // Timestamp sebelum mengirim ke backend
+    console.log(`Capture Time: ${(startSendTime - startCaptureTime).toFixed(2)} ms`);
 
     try {
       const response = await API.post("/process_frame", { frame });
 
-      if (response.data && response.data.length > 0) {
-        const detectedClass = response.data[0].class;
-        const detectedConfidence = response.data[0].confidence;
+      const endResponseTime = performance.now(); // Timestamp setelah menerima respons dari backend
+      console.log(`Server Response Time: ${(endResponseTime - startSendTime).toFixed(2)} ms`);
+
+      const detectionResults = response.data.detections;
+
+      if (detectionResults && detectionResults.length > 0) {
+        const detectedClass = detectionResults[0].class;
+        const detectedConfidence = detectionResults[0].confidence;
+        const onnxTime = response.data.onnx_inference_time?.toFixed(2); // dalam ms
 
         if (detectedConfidence > 0.5) {
           setDetectedLetter(detectedClass);
           setHistory((prevHistory) => [
             ...prevHistory,
-            { frame: `data:image/jpeg;base64,${frame}`, letter: detectedClass }
+            {
+              frame: `data:image/jpeg;base64,${frame}`,
+              letter: detectedClass,
+              onnxTime: onnxTime
+            }
           ]);
         }
       } else {
@@ -101,6 +115,9 @@ const App = () => {
     } catch (err) {
       console.error("Error sending frame to server: ", err);
     }
+
+    const endProcessTime = performance.now(); // Timestamp setelah frontend selesai memproses hasil
+    console.log(`Frontend Processing Time: ${(endProcessTime - startSendTime).toFixed(2)} ms`);
   };
 
   useEffect(() => {
@@ -184,7 +201,12 @@ const App = () => {
           {history.map((item, index) => (
             <div key={index} className={styles["history-item"]}>
               <img src={item.frame} alt={`Detected ${item.letter}`} className={styles["history-image"]} />
-              <p className={styles["history-result-text"]}>{item.letter}</p>
+              <p className={styles["history-result-text"]}>
+                {item.letter}
+              </p>
+              <p className={styles["history-result-time"]}>
+                {item.onnxTime ? `⏱️ ${item.onnxTime} ms` : ""}
+              </p>
             </div>
           ))}
         </div>
