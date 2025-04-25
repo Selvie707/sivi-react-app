@@ -142,6 +142,10 @@ p{
   font-size: 52px;
 }
 
+.history-result-time{
+  font-size: 38px;
+}
+
 .card {
   padding: 2em;
 }
@@ -224,6 +228,10 @@ p{
     font-size: 16px;
   }
 
+  .history-result-time{
+    font-size: 12px;
+  }
+
   .realtime-video{
     width: 50%;
     margin: 0px auto;
@@ -299,6 +307,10 @@ p{
     font-size: 28px;
   }
 
+  .history-result-time{
+    font-size: 22px;
+  }
+
   .realtime-video{
     width: 50%;
     margin: 0px auto;
@@ -355,6 +367,10 @@ p{
   .history-result-text{
     font-size: 28px;
   }
+
+  .history-result-time{
+    font-size: 22px;
+  }
 }
 
 @media screen and (min-width: 1921px) {
@@ -410,5 +426,9 @@ p{
 
   .history-result-text{
     font-size: 38px;
+  }
+
+  .history-result-time{
+    font-size: 32px;
   }
 }
