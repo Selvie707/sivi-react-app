@@ -79,21 +79,27 @@ const Learn = () => {
     if (!frame) return;
     try {
       const response = await API.post("/process_frame", { frame });
-      if (response.data && response.data.length > 0) {
-        const detectedClass = response.data[0].class;
-        const detectedConfidence = response.data[0].confidence;
-        
+      const detectionResults = response.data.detections;
+      if (detectionResults && detectionResults.length > 0) {
+        const detectedClass = detectionResults[0].class;
+        const detectedConfidence = detectionResults[0].confidence;
+        const onnxTime = response.data.onnx_inference_time?.toFixed(2); // dalam ms
+  
         if (detectedConfidence > 0.5) {
           setDetectedLetter(detectedClass);
-          
+          console.log(`detected class = ${detectedClass}`);
           const isCorrect = detectedClass === targetLetter;
   
           if (isCorrect) {
             setHistory((prevHistory) => [
               ...prevHistory,
-              { frame: `data:image/jpeg;base64,${frame}`, letter: detectedClass }
+              {
+                frame: `data:image/jpeg;base64,${frame}`,
+                letter: detectedClass,
+                onnxTime: onnxTime
+              }
             ]);
-            
+  
             setTargetLetter(alphabet[Math.floor(Math.random() * alphabet.length)]);
           }
         }
@@ -103,8 +109,7 @@ const Learn = () => {
     } catch (err) {
       console.error("Error sending frame to server: ", err);
     }
-  };
-  
+  };    
 
   useEffect(() => {
     if (intervalId) clearInterval(intervalId);
@@ -180,6 +185,9 @@ const Learn = () => {
             <div key={index} className={styles["history-item"]}>
               <img src={item.frame} alt={`Detected ${item.letter}`} className={styles["history-image"]} />
               <p className={styles["historyText"]}>{item.letter}</p>
+              <p className={styles["history-result-time"]}>
+                {item.onnxTime ? `⏱️ ${item.onnxTime} ms` : ""}
+              </p>
             </div>
           ))}
         </div>
