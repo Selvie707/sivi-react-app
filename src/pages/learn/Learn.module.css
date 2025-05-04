@@ -151,6 +151,10 @@ p{
   font-size: 38px;
 }
 
+.history-result-time{
+  font-size: 38px;
+}
+
 .history-grid{
   margin: 32px 0px 0px 0px;
   gap: 32px;
@@ -273,6 +277,10 @@ p{
     font-size: 16px;
   }
 
+  .history-result-time{
+    font-size: 12px;
+  }
+
   .history-grid{
     gap: 12px;
   }
@@ -377,6 +385,10 @@ p{
   .history-text{
     font-size: 28px;
   }
+  
+  .history-result-time{
+    font-size: 22px;
+  }
 
   .history-image{
     width: 120px;
@@ -437,6 +449,10 @@ p{
   .history-text{
     font-size: 28px;
   }
+  
+  .history-result-time{
+    font-size: 22px;
+  }
 
   .history-container{
     padding: 52px;
@@ -492,6 +508,10 @@ p{
 
   .history-text{
     font-size: 38px;
+  }
+  
+  .history-result-time{
+    font-size: 32px;
   }
 
   .history-container{
