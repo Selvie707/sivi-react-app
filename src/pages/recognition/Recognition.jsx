@@ -96,7 +96,7 @@ const App = () => {
       if (detectionResults && detectionResults.length > 0) {
         const detectedClass = detectionResults[0].class;
         const detectedConfidence = detectionResults[0].confidence;
-        const onnxTime = endResponseTime.toFixed(2); // dalam ms
+        const onnxTime = (endResponseTime - startSendTime).toFixed(2); // dalam ms
 
         if (detectedConfidence > 0.5) {
           setDetectedLetter(detectedClass);
